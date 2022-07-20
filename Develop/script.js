@@ -1,6 +1,21 @@
 // Assignment code here
 var generateBtn = document.querySelector("#generate");
 
+// Function that will provide random integer
+function randomInteger (min, max) {
+  if(!max) {
+    max = min
+    min = 0
+  }
+  var rand = Math.random()
+  return Math.floor(min*(1 - rand) + rand*max)
+}
+
+// Function will provide random item from our lists
+function randomItem(list) {
+  return list[randomInteger(list.length)]
+}
+
 function generatePassword() {
   // User clicks "Generate Password" button and sees the pop up window with input line
   var userInput = window.prompt("Please provide desired password length")
@@ -31,11 +46,14 @@ function generatePassword() {
   var listOfLowerCase = ["a", "b", "c", "d", "e"]
   var listOfUpperCase = []
 
-  // User make a choice. If clicks Ok number or symbol will be added, if Cancel, will be skipped
+  // lowercase letters will be transform to uppercase letters 
   for (var i = 0; i < listOfLowerCase.length; i++) {
     listOfUpperCase[i] = listOfLowerCase[i].toLocaleUpperCase()
   }
 
+  var passwordCollector = []
+
+  // User make a choice. If clicks Ok, number or symbol will be added, if Cancel, will be skipped
   if (userNumber === true) {
     passwordCollector.push(listOfNumbers)
   }
@@ -51,6 +69,18 @@ function generatePassword() {
   if (userUpperCase === true) {
     passwordCollector.push(listOfUpperCase)
   }
+
+  var generatePassword = ""
+
+  // for loop will print chars, length will be the same as user asked to provide in pass lenght input
+  for(var i = 0; i < passLength; i++) {
+    var randomList = randomItem(passwordCollector)
+    var randomCharacter = randomItem(randomList)
+    generatePassword += randomCharacter
+  }
+
+  // Return of the result
+  return generatePassword
   
 }
 
@@ -61,8 +91,11 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+ 
+  // Generated password provided in the text area
+  if (password) {
+    passwordText.value = password;
+  }
 
 }
 
