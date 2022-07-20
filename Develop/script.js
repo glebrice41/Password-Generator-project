@@ -24,6 +24,33 @@ function generatePassword() {
   var userSymbol = window.confirm("Do you want symbols in your password?")
   var userLowerCase = window.confirm("Do you want lowercase letters in your password?")
   var userUpperCase = window.confirm("Do you want uppercase letters in your password?")
+
+  // Lists of numbers, symbols, lower and uppercase letters password generator will use to create passwords
+  var listOfNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
+  var listOfSymbols = ["!", "@", "#", "$", "%",]
+  var listOfLowerCase = ["a", "b", "c", "d", "e"]
+  var listOfUpperCase = []
+
+  // User make a choice. If clicks Ok number or symbol will be added, if Cancel, will be skipped
+  for (var i = 0; i < listOfLowerCase.length; i++) {
+    listOfUpperCase[i] = listOfLowerCase[i].toLocaleUpperCase()
+  }
+
+  if (userNumber === true) {
+    passwordCollector.push(listOfNumbers)
+  }
+
+  if (userSymbol === true) {
+    passwordCollector.push(listOfSymbols)
+  }
+
+  if (userLowerCase === true) {
+    passwordCollector.push(listOfLowerCase)
+  }
+
+  if (userUpperCase === true) {
+    passwordCollector.push(listOfUpperCase)
+  }
   
 }
 
