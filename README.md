@@ -18,7 +18,7 @@ If requested password less than 8 or more than 128 chars system will show messag
 
 Code access:
 
-HTTPS: https://github.com/glebrice41/Password-Generator-project.git
-SSH: git@github.com:glebrice41/Password-Generator-project.git
-GH CLI: gh repo clone glebrice41/Password-Generator-project
-Repo: https://github.com/glebrice41/Password-Generator-project
+<p>HTTPS: https://github.com/glebrice41/Password-Generator-project.git</p>
+<p>SSH: git@github.com:glebrice41/Password-Generator-project.git</p>
+<p>GH CLI: gh repo clone glebrice41/Password-Generator-project</p>
+<p>Repo: https://github.com/glebrice41/Password-Generator-project</p>
